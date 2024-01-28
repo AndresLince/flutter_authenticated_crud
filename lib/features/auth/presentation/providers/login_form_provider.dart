@@ -14,6 +14,20 @@ class LoginFormState {
     this.password = const Password.pure(),
   });
 
+  LoginFormState copyWith({
+    bool? isPosting,
+    bool? isFormPosted,
+    bool? isValid,
+    Email? email,
+    Password? password,
+  }) => LoginFormState(
+    isPosting: isPosting ?? this.isPosting,
+    isFormPosted: isFormPosted ?? this.isFormPosted,
+    isValid: isValid ?? this.isValid,
+    email: email ?? this.email,
+    password: password ?? this.password,
+  );
+
   @override
   String toString() {
     return '''
