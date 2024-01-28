@@ -13,4 +13,16 @@ class LoginFormStage {
     this.email = const Email.pure(),
     this.password = const Password.pure(),
   });
+
+  @override
+  String toString() {
+    return '''
+    LoginFormState:
+    isPosting: $isPosting
+    isFormPosted: $isFormPosted
+    isValid: $isValid
+    email: $email
+    password: $password
+    ''';
+  }
 }
