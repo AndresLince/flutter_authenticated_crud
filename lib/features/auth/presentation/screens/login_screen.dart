@@ -68,9 +68,11 @@ class _LoginForm extends ConsumerWidget {
           Text('Login', style: textStyles.titleLarge ),
           const SizedBox( height: 90 ),
 
-          const CustomTextFormField(
+          CustomTextFormField(
             label: 'Correo',
             keyboardType: TextInputType.emailAddress,
+            onChanged: ref.read(loginFormProvider.notifier).onEmailChange,
+            errorMessage: loginForm.email.errorMessage,
           ),
           const SizedBox( height: 30 ),
 
