@@ -1,6 +1,13 @@
+import 'package:dio/dio.dart';
+import 'package:teslo_shop/config/config.dart';
 import 'package:teslo_shop/features/auth/domain/domain.dart';
 
 class AuthDataSourceImpl extends AuthDataSource {
+  final dio = Dio(
+    BaseOptions(
+      baseUrl: Environment.apiUrl,
+    )
+  );
   @override
   Future<User> checkAuthStatus(String token) {
     // TODO: implement checkAuthStatus
