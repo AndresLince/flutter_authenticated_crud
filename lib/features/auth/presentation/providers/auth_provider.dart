@@ -1,6 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:teslo_shop/features/auth/infrastructure/infrastructure.dart';
 
 import '../../domain/entities/user.dart';
+
+final authProvider = StateNotifierProvider<AuthNofifier, AuthState>((ref) {
+  final authRepository = AuthRepositoryImpl(dataSource);
+  return AuthNofifier();
+});
 
 class AuthNofifier extends StateNotifier<AuthState> {
   AuthNofifier(): super(AuthState());
