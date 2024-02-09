@@ -1,4 +1,22 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../domain/entities/user.dart';
+
+class AuthNofifier extends StateNotifier<AuthState> {
+  AuthNofifier(): super(AuthState());
+
+  void LoginUser(String email, String password) async {
+
+  }
+
+  void registerUser(String email, String password) async {
+
+  }
+
+  void checkAuthStatus() async {
+
+  }
+}
 
 enum AuthStatus {
   checking, authenticated, notAuthenticated
