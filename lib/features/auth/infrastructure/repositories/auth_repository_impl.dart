@@ -1,8 +1,13 @@
-import 'package:teslo_shop/features/auth/domain/entities/user.dart';
-
-import '../../domain/repositories/auth_repository.dart';
+import 'package:teslo_shop/features/auth/domain/domain.dart';
+import '../datasources/auth_datasource_impl.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
+
+  final AuthDataSource dataSource;
+  AuthRepositoryImpl(
+    AuthDataSource? dataSource
+  ): dataSource = dataSource ?? AuthDataSourceImpl();
+
   @override
   Future<User> checkAuthStatus(String token) {
     // TODO: implement checkAuthStatus
@@ -20,5 +25,4 @@ class AuthRepositoryImpl extends AuthRepository {
     // TODO: implement register
     throw UnimplementedError();
   }
-
 }
