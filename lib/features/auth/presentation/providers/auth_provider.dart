@@ -27,6 +27,11 @@ class AuthNofifier extends StateNotifier<AuthState> {
 
   }
 
+  void _setLoggedUser(User user) {
+    // TODO: necesito guardar el token en el dispositivo
+    state = state.copyWith(authStatus: AuthStatus.authenticated, user: user, errorMessage: '', );
+  }
+
   Future<void> logout() async {
 
   }
