@@ -26,6 +26,10 @@ class AuthNofifier extends StateNotifier<AuthState> {
   void checkAuthStatus() async {
 
   }
+
+  Future<void> logout() async {
+
+  }
 }
 
 enum AuthStatus {
