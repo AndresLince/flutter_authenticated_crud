@@ -64,9 +64,9 @@ class _LoginForm extends ConsumerWidget {
       padding: const EdgeInsets.symmetric(horizontal: 50),
       child: Column(
         children: [
-          const SizedBox( height: 50 ),
+          const SizedBox( height: 10 ),
           Text('Login', style: textStyles.titleLarge ),
-          const SizedBox( height: 90 ),
+          const SizedBox( height: 10 ),
 
           CustomTextFormField(
             label: 'Correo',
@@ -75,7 +75,7 @@ class _LoginForm extends ConsumerWidget {
             errorMessage:
               loginForm.isFormPosted ? loginForm.email.errorMessage: null,
           ),
-          const SizedBox( height: 30 ),
+          const SizedBox( height: 10 ),
 
           CustomTextFormField(
             label: 'Contraseña',
@@ -85,7 +85,7 @@ class _LoginForm extends ConsumerWidget {
               loginForm.isFormPosted ? loginForm.password.errorMessage: null,
           ),
     
-          const SizedBox( height: 30 ),
+          const SizedBox( height: 10 ),
 
           SizedBox(
             width: double.infinity,
