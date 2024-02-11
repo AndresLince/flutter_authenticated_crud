@@ -15,7 +15,7 @@ class AuthNofifier extends StateNotifier<AuthState> {
     required this.authRepository,
   }): super(AuthState());
 
-  void LoginUser(String email, String password) async {
+  void loginUser(String email, String password) async {
     try{
       final user = await authRepository.login(email, password);
       _setLoggedUser(user);
