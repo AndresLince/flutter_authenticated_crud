@@ -21,6 +21,8 @@ class AuthNofifier extends StateNotifier<AuthState> {
       _setLoggedUser(user);
     } on WrongCredentials catch (e) {
       logout('Credenciales incorrectas');
+    } on ConnectionTimeOut catch (e) {
+      logout('Timeout');
     } catch (e) {
       logout('Error no controlado');
     }
