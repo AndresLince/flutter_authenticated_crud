@@ -87,5 +87,7 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
 }
 
 final loginFormProvider = StateNotifierProvider.autoDispose<LoginFormNotifier, LoginFormState>((ref) {
-  return LoginFormNotifier();
+  final loginUserCallback = ref.watch(authProvider.notifier).loginUser;
+
+  return LoginFormNotifier(loginUserCallBack: loginUserCallback);
 });
