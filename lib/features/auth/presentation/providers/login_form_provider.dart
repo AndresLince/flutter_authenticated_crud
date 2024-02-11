@@ -1,4 +1,5 @@
 import 'package:formz/formz.dart';
+import 'package:teslo_shop/features/auth/presentation/providers/auth_provider.dart';
 import 'package:teslo_shop/features/shared/shared.dart';
 import 'package:riverpod/riverpod.dart';
 
@@ -44,7 +45,10 @@ class LoginFormState {
 }
 
 class LoginFormNotifier extends StateNotifier<LoginFormState> {
-  LoginFormNotifier() : super(LoginFormState());
+  final Function(String,String) loginUserCallBack;
+  LoginFormNotifier({
+    required this.loginUserCallBack
+  }) : super(LoginFormState());
 
   onEmailChange(String value) {
     final newEmail = Email.dirty(value);
