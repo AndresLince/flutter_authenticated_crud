@@ -14,9 +14,9 @@ class KeyValueStorageServiceImpl extends KeyValueStorageService {
   }
 
   @override
-  Future<bool> removeKey(String key) {
-    // TODO: implement removeKey
-    throw UnimplementedError();
+  Future<bool> removeKey(String key) async {
+    final prefs = await getSharedPrefs();
+    return await prefs.remove(key);
   }
 
   @override
