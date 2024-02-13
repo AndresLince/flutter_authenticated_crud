@@ -20,9 +20,13 @@ class KeyValueStorageServiceImpl extends KeyValueStorageService {
   }
 
   @override
-  Future<void> setKeyValue<T>(String key, T value) {
-    // TODO: implement setKeyValue
-    throw UnimplementedError();
+  Future<void> setKeyValue<T>(String key, T value) async {
+    final prefs = await getSharedPrefs();
+
+    switch(T) {
+      case int:
+        prefs.setInt(key, value as int);
+    }
   }
   
 }
