@@ -2,17 +2,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:teslo_shop/features/auth/domain/domain.dart';
 import 'package:teslo_shop/features/auth/infrastructure/infrastructure.dart';
 
+import '../../../shared/infrastructure/services/key_value_storage_service.dart';
+import '../../../shared/infrastructure/services/key_value_storage_service_impl.dart';
 import '../../domain/entities/user.dart';
 
 final authProvider = StateNotifierProvider<AuthNofifier, AuthState>((ref) {
+  final keyValueStorageService = KeyValueStorageServiceImpl();
   final authRepository = AuthRepositoryImpl();
-  return AuthNofifier(authRepository: authRepository);
+  return AuthNofifier(authRepository: authRepository, keyValueStorageService: keyValueStorageService,);
 });
 
 class AuthNofifier extends StateNotifier<AuthState> {
   final AuthRepository authRepository;
+  final KeyValueStorageService keyValueStorageService;
   AuthNofifier({
     required this.authRepository,
+    required this.keyValueStorageService,
   }): super(AuthState());
 
   Future<void> loginUser(String email, String password) async {
