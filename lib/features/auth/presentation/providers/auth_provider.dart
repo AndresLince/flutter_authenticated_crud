@@ -39,8 +39,9 @@ class AuthNofifier extends StateNotifier<AuthState> {
 
   }
 
-  void _setLoggedUser(User user) {
-    // TODO: necesito guardar el token en el dispositivo
+  void _setLoggedUser(User user) async {
+    await keyValueStorageService.setKeyValue('token', user.token);
+
     state = state.copyWith(authStatus: AuthStatus.authenticated, user: user, errorMessage: '', );
   }
 
