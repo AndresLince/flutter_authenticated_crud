@@ -8,9 +8,17 @@ class KeyValueStorageServiceImpl extends KeyValueStorageService {
   }
 
   @override
-  Future<T?> getValue<T>(String key) {
-    // TODO: implement getValue
-    throw UnimplementedError();
+  Future<T?> getValue<T>(String key) async {
+    final prefs = await getSharedPrefs();
+
+    switch(T) {
+      case int:
+        return prefs.getInt(key) as T?;
+      case String:
+        return prefs.getString(key) as T?;
+      default:
+        throw UnimplementedError('Set not implemented for type ${ T.runtimeType }');
+    }
   }
 
   @override
