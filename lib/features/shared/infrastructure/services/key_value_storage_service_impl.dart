@@ -30,6 +30,8 @@ class KeyValueStorageServiceImpl extends KeyValueStorageService {
       case String:
         prefs.setString(key, value as String);
         break;
+      default:
+        throw UnimplementedError('Set not implemented for type ${ T.runtimeType }');
     }
   }
   
