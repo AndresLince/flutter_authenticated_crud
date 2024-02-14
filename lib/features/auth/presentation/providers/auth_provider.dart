@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:teslo_shop/features/auth/domain/domain.dart';
 import 'package:teslo_shop/features/auth/infrastructure/infrastructure.dart';
@@ -38,7 +40,8 @@ class AuthNofifier extends StateNotifier<AuthState> {
   }
 
   void checkAuthStatus() async {
-
+    final token = await keyValueStorageService.getValue<String>('token');
+    if (token == null) return logout();
   }
 
   void _setLoggedUser(User user) async {
