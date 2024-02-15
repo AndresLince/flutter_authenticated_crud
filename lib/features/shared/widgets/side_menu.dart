@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:teslo_shop/features/shared/shared.dart';
 
-class SideMenu extends StatefulWidget {
+class SideMenu extends ConsumerStatefulWidget {
 
   final GlobalKey<ScaffoldState> scaffoldKey;
 
@@ -12,10 +13,10 @@ class SideMenu extends StatefulWidget {
   });
 
   @override
-  State<SideMenu> createState() => _SideMenuState();
+  ConsumerState<SideMenu> createState() => _SideMenuState();
 }
 
-class _SideMenuState extends State<SideMenu> {
+class _SideMenuState extends ConsumerState<SideMenu> {
 
   int navDrawerIndex = 0;
 
