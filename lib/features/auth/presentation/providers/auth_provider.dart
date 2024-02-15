@@ -47,7 +47,7 @@ class AuthNofifier extends StateNotifier<AuthState> {
       final user = await authRepository.checkAuthStatus(token);
       _setLoggedUser(user);
     } catch (e) {
-
+      logout();
     }
   }
 
