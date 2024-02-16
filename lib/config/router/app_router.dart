@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:teslo_shop/config/router/app_router_notifier.dart';
@@ -10,7 +8,7 @@ final goRouterProvider = Provider((ref) {
 
   final goRouterNotifier = ref.read(goRouterNotifierProvider);
   return GoRouter(
-    initialLocation: '/splash',
+    initialLocation: '/login',
     refreshListenable: goRouterNotifier,
     routes: [
       ///* Primera pantalla
