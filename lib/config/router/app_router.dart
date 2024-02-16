@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:teslo_shop/features/auth/auth.dart';
@@ -29,7 +31,11 @@ final goRouterProvider = Provider((ref) {
         builder: (context, state) => const ProductsScreen(),
       ),
     ],
+    redirect: (context, state) {
+      print(state);
 
+      return null;
+    }
     ///! TODO: Bloquear si no se está autenticado de alguna manera
   );
 });
